@@ -1,0 +1,18 @@
+B1: grep '"city":"Santa Barbara"' /data/yelp/yelp_academic_dataset_business.json
+B2: grep -c'"state":"CA"'/data/yelp/yelp_academic_dataset_business.json
+B3:grep -i'worth'/data/yelp/yelp_academic_dataset_review.json
+B3 Option: -i makes matching case-insensitive
+B4: grep -E 'Coffee|Café|Cafe' /data/yelp/yelp_academic_dataset_business.json
+B5: grep -E '"stars":(4\.5|5\.0)' /data/yelp/yelp_academic_dataset_business.json
+B6: grep -E '"stars":5,' /data/yelp/yelp_academic_dataset_review.json
+B7: grep -E '[[:alnum:]_]+@[[:alnum:]_.]+\.[[:alpha:]]{2,}' /data/yelp/yelp_academic_dataset_review.json
+B8: grep -E '[0-9]{3}-[0-9]{3}-[0-9]{4}' /data/yelp/yelp_academic_dataset_review.json
+B9: grep -E '"name":"P' /data/yelp/yelp_academic_dataset_business.json
+B10: grep -ci 'pizza' /data/yelp/yelp_academic_dataset_review.json
+B11: grep -in 'service' /data/yelp/yelp_academic_dataset_review.json
+B11 Option: -n prints line numbers
+B12: grep -v 'Restaurants' /data/yelp/yelp_academic_dataset_business.json
+B12 Option: -v inverts the match
+B13: grep '"state":"CA"' /data/yelp/yelp_academic_dataset_business.json | grep -oE '"review_count":[0-9]+' | grep -oE '[0-9]+' | sort -nr | head -3
+B13 explanation: first grep keeps California businesses; second grep extracts review_count fields; third grep extracts only the numbers; sort -nr sorts numerically descending; head -3 keeps the top 3.
+B14: grep '"city":"Santa Barbara"' /data/yelp/yelp_academic_dataset_business.json | grep -oE '"name":"[^"]*"' | sed 's/"name":"//; s/"$//' | sort
