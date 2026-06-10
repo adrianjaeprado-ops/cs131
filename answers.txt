@@ -1,0 +1,9 @@
+T1: cd /home/ishigaki-cs26/cs131/ws1 && pwd
+T2: ls ../data
+T3: file logs/app01.log .env
+T4: ls -lahr
+T5: ls -lS logs/
+T6: Size: 1048576, Owner: ishigaki-cs26, Time: Jun 8 10:35
+T7: ls data/Data?.csv
+T9: ls logs/BACKUP.[0-9][0-9][0-9]
+T12: rm -ri backup/data
