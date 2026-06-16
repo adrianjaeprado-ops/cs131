@@ -1,0 +1,16 @@
+Q1: git add notes.md && git commit -m "ws2: add task line"
+Q2: git log --oneline -n 3
+Q3: 673563c
+Q4: git revert 673563c
+Q5: git rm --cached bigdata.bin && echo "bigdata.bin" >> .gitignore && git add .gitignore && git commit --amend
+Q6: git switch -c feature-summary
+Q7: git add summary.md && git commit -m "ws2: add summary"
+Q8: git diff main
+Q9: git switch main && git merge feature-summary
+Q10: git branch -d feature-summary
+Q11: git merge conflict-branch
+Q12: git status
+Q13: printf "# Summary\nMain and branch updates combined\n" > summary.md
+Q14: git add summary.md && git commit -m "ws2: resolve merge conflict"
+Q15: git fetch origin && git log HEAD..origin/main --oneline
+Q16: git fetch downloads remote history without modifying your local working files, while git pull downloads remote history and immediately attempts to merge it into your current branch.
