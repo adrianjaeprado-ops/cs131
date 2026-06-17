@@ -1,0 +1,6 @@
+total 8
+-rw-rw-r-- 1 ishigaki-cs26 ishigaki-cs26   0 Jun 17 09:32 answers.txt
+-rw-rw-r-- 1 ishigaki-cs26 ishigaki-cs26  45 Jun 17 09:32 fruits.txt
+-rw-rw-r-- 1 ishigaki-cs26 ishigaki-cs26   0 Jun 17 09:32 listing.txt
+-rw-rw-r-- 1 ishigaki-cs26 ishigaki-cs26 102 Jun 17 09:32 server.log
+Wed Jun 17 09:33:06 AM PDT 2026
