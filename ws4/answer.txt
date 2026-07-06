@@ -20,3 +20,29 @@ trim ()
 - The second "var="${var%"${var##*[![:space:]]}"}"" line does the same thing but from the other direction, removing any trailing whitespace by trimming off everything after the last non-space character.
 
 - The "echo -n "$var"" prints the cleaned-up string without adding a newline at the end. The "-n" matters here because if this function is being used inside another command or being combined with other text, an extra newline could mess up formatting or cause unexpected line breaks.
+Function: mkws()
+https://github.com/adrianjaeprado-ops/cs131/blob/f1bb7a87a5d5e89254a7aeefb1da45a19e46dae9/ws4/.bashrc#L1-L10
+
+mkws ()
+
+- I built this because every worksheet in this class follows the same routine, making a new folder under ~/cs131, moving into it, and starting a fresh answer.txt. Doing that manually every single worksheet felt like it was just wasting time.
+
+- The if [ -z "$1" ] check is there to catch the case where I forget to actually type a worksheet name. If that happens, it prints a usage message and exits early with return 1 instead of trying to create a folder with no name.
+
+- The mkdir -p ~/cs131/"$1" and cd ~/cs131/"$1" lines are what actually create the folder and move into it, using whatever name I typed in as the argument.
+
+- The last two lines, touch answer.txt and vim answer.txt, create the blank file and immediately drop me into it so I can start writing right away instead of running two more commands myself.
+
+Alias: gpush
+https://github.com/adrianjaeprado-ops/cs131/blob/f1bb7a87a5d5e89254a7aeefb1da45a19e46dae9/ws4/.bashrc#L12
+
+alias gpush='git add -A && git commit -m "update worksheet" && git push'
+
+- This is a shortcut for the three commands I run at the end of basically every worksheet, git add, git commit, and git push. Chaining them together with && means each one only runs if the last one succeeded, so instead of typing all three separately, I just type gpush once I am done writing.
+
+If-statement: cs131 folder check
+https://github.com/adrianjaeprado-ops/cs131/blob/f1bb7a87a5d5e89254a7aeefb1da45a19e46dae9/ws4/.bashrc#L13-L15
+
+if [[ "$PWD" == "$HOME/cs131"* ]]; then
+
+- This checks whether my current folder is somewhere inside ~/cs131 every time a new shell starts up. If it is, it prints a quick reminder that mkws and gpush are ready to use. It is a small thing, but it helps me remember the shortcuts actually exist instead of forgetting about them and typing everything out by hand anyway.
