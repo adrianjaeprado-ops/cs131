@@ -1,0 +1,11 @@
+=== Phase 2 - Excel Breaking Point ===
+
+Test file: combined_4days.csv (4 days of Q3 2025 data: July 1-4)
+Rows: 1,289,227
+Size: 483.2 MB
+
+Excel's row limit is 1,048,576 rows. Our combined file exceeds this by 240,651 rows.
+
+Result: Excel displayed an error on open: "This data set is too large for the Excel grid. If you save this workbook, you'll lose data that wasn't loaded." (see excel_failure.png)
+
+This confirms Excel cannot load the full file once it exceeds the row limit, and any rows past the cutoff are simply left out. This means any analysis run in Excel on this dataset would be working with a partial and possibly unrepresentative slice of the data. This is exactly the kind of failure mode that motivates using command line tools and Spark instead.
