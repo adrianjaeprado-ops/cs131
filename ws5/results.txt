@@ -1,0 +1,56 @@
+The model is able to predict that for every additional dollar on the total bill, the tip increases by about $0.09, and for each added person in the party group the tip increases by about $0.21.
+
+Batch [5d4b59c01b604656b51768ce72cb5d8c] submitted.
+WARNING: No runtime version specified. Using the default runtime version. It is recommended to select a specific major.minor runtime version in production, as the default runtime version may change at any time.
+Using the default container image
+Waiting for container log creation
+PYSPARK_PYTHON=/opt/dataproc/conda/bin/python
+Generating /home/spark/.pip/pip.conf
+Configuring index-url as 'https://us-python.pkg.dev/artifact-registry-python-cache/virtual-python/simple/'
+JAVA_HOME=/usr/lib/jvm/temurin-17-jdk-amd64
+SPARK_EXTRA_CLASSPATH=
+:: loading settings :: file = /etc/spark/conf/ivysettings.xml
+26/07/21 00:23:40 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-google-hadoop-file-system.properties,hadoop-metrics2.properties
+26/07/21 00:23:40 INFO MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+26/07/21 00:23:40 INFO MetricsSystemImpl: google-hadoop-file-system metrics system started
+Reading data from: gs://cs131-ws5-adrianjae/ws5/tips.csv
++----------+----+------+------+---+------+----+
+|total_bill| tip|   sex|smoker|day|  time|size|
++----------+----+------+------+---+------+----+
+|     16.99|1.01|Female|    No|Sun|Dinner|   2|
+|     10.34|1.66|  Male|    No|Sun|Dinner|   3|
+|     21.01| 3.5|  Male|    No|Sun|Dinner|   3|
+|     23.68|3.31|  Male|    No|Sun|Dinner|   2|
+|     24.59|3.61|Female|    No|Sun|Dinner|   4|
++----------+----+------+------+---+------+----+
+only showing top 5 rows
+
+26/07/21 00:24:00 WARN Instrumentation: [267db643] regParam is zero, which might cause numerical instability and overfitting.
+26/07/21 00:24:02 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.blas.VectorBLAS
+
+========================================
+RESULTS:
+Coefficients: [0.09145843635504758,0.21070300388935664]
+Intercept: 0.6178364054767158
+RMSE: 0.9917585899142384
+R2: 0.47574015044898343
+========================================
+
+Batch [5d4b59c01b604656b51768ce72cb5d8c] finished.
+metadata:
+  '@type': type.googleapis.com/google.cloud.dataproc.v1.BatchOperationMetadata
+  batch: projects/my-first-vm-499516/locations/us-east1/batches/5d4b59c01b604656b51768ce72cb5d8c
+  batchUuid: 548cd36f-b04a-49de-ad67-993bada3659e
+  createTime: '2026-07-21T00:22:29.092797Z'
+  description: Batch
+  labels:
+    goog-dataproc-batch-id: 5d4b59c01b604656b51768ce72cb5d8c
+    goog-dataproc-batch-uuid: 548cd36f-b04a-49de-ad67-993bada3659e
+    goog-dataproc-drz-resource-uuid: batch-548cd36f-b04a-49de-ad67-993bada3659e
+    goog-dataproc-location: us-east1
+  operationType: BATCH
+  warnings:
+  - No runtime version specified. Using the default runtime version. It is recommended
+    to select a specific major.minor runtime version in production, as the default
+    runtime version may change at any time.
+name: projects/my-first-vm-499516/regions/us-east1/operations/28434dd5-01f8-3d1c-a596-b72069294538
