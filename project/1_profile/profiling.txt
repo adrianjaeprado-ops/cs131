@@ -1,0 +1,56 @@
+=== Phase 1 Profiling — Sample (5 days, Q3 2025) ===
+
+--- Size and row count ---
+605M	/home/adrianjae_prado/q3_sample
+   321793 /home/adrianjae_prado/q3_sample/2025-07-01.csv
+   322497 /home/adrianjae_prado/q3_sample/2025-07-02.csv
+   322446 /home/adrianjae_prado/q3_sample/2025-07-03.csv
+   322491 /home/adrianjae_prado/q3_sample/2025-07-04.csv
+   322385 /home/adrianjae_prado/q3_sample/2025-07-05.csv
+  1611612 total
+
+--- Schema peek ---
+date,serial_number,model,capacity_bytes,failure,datacenter,cluster_id,vault_id,pod_id,pod_slot_num,is_legacy_format,smart_1_normalized,smart_1_raw,smart_2_normalized,smart_2_raw,smart_3_normalized,smart_3_raw,smart_4_normalized,smart_4_raw,smart_5_normalized,smart_5_raw,smart_7_normalized,smart_7_raw,smart_8_normalized,smart_8_raw,smart_9_normalized,smart_9_raw,smart_10_normalized,smart_10_raw,smart_11_normalized,smart_11_raw,smart_12_normalized,smart_12_raw,smart_13_normalized,smart_13_raw,smart_15_normalized,smart_15_raw,smart_16_normalized,smart_16_raw,smart_17_normalized,smart_17_raw,smart_18_normalized,smart_18_raw,smart_22_normalized,smart_22_raw,smart_23_normalized,smart_23_raw,smart_24_normalized,smart_24_raw,smart_27_normalized,smart_27_raw,smart_71_normalized,smart_71_raw,smart_82_normalized,smart_82_raw,smart_90_normalized,smart_90_raw,smart_160_normalized,smart_160_raw,smart_161_normalized,smart_161_raw,smart_163_normalized,smart_163_raw,smart_164_normalized,smart_164_raw,smart_165_normalized,smart_165_raw,smart_166_normalized,smart_166_raw,smart_167_normalized,smart_167_raw,smart_168_normalized,smart_168_raw,smart_169_normalized,smart_169_raw,smart_170_normalized,smart_170_raw,smart_171_normalized,smart_171_raw,smart_172_normalized,smart_172_raw,smart_173_normalized,smart_173_raw,smart_174_normalized,smart_174_raw,smart_175_normalized,smart_175_raw,smart_176_normalized,smart_176_raw,smart_177_normalized,smart_177_raw,smart_178_normalized,smart_178_raw,smart_179_normalized,smart_179_raw,smart_180_normalized,smart_180_raw,smart_181_normalized,smart_181_raw,smart_182_normalized,smart_182_raw,smart_183_normalized,smart_183_raw,smart_184_normalized,smart_184_raw,smart_187_normalized,smart_187_raw,smart_188_normalized,smart_188_raw,smart_189_normalized,smart_189_raw,smart_190_normalized,smart_190_raw,smart_191_normalized,smart_191_raw,smart_192_normalized,smart_192_raw,smart_193_normalized,smart_193_raw,smart_194_normalized,smart_194_raw,smart_195_normalized,smart_195_raw,smart_196_normalized,smart_196_raw,smart_197_normalized,smart_197_raw,smart_198_normalized,smart_198_raw,smart_199_normalized,smart_199_raw,smart_200_normalized,smart_200_raw,smart_201_normalized,smart_201_raw,smart_202_normalized,smart_202_raw,smart_206_normalized,smart_206_raw,smart_210_normalized,smart_210_raw,smart_211_normalized,smart_211_raw,smart_212_normalized,smart_212_raw,smart_218_normalized,smart_218_raw,smart_220_normalized,smart_220_raw,smart_222_normalized,smart_222_raw,smart_223_normalized,smart_223_raw,smart_224_normalized,smart_224_raw,smart_225_normalized,smart_225_raw,smart_226_normalized,smart_226_raw,smart_230_normalized,smart_230_raw,smart_231_normalized,smart_231_raw,smart_232_normalized,smart_232_raw,smart_233_normalized,smart_233_raw,smart_234_normalized,smart_234_raw,smart_235_normalized,smart_235_raw,smart_240_normalized,smart_240_raw,smart_241_normalized,smart_241_raw,smart_242_normalized,smart_242_raw,smart_244_normalized,smart_244_raw,smart_245_normalized,smart_245_raw,smart_246_normalized,smart_246_raw,smart_247_normalized,smart_247_raw,smart_248_normalized,smart_248_raw,smart_250_normalized,smart_250_raw,smart_251_normalized,smart_251_raw,smart_252_normalized,smart_252_raw,smart_254_normalized,smart_254_raw,smart_255_normalized,smart_255_raw
+2025-07-01,2207E60CC65A,CT250MX500SSD1,250059350016,0,sac0,000,1028,13,,False,100,0,,,,,,,100,0,,,,,100,21151,,,,,100,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100,0,100,0,50,654,100,0,,,,,,,,,,,0,27,,,,,100,0,100,0,100,0,,,,,,,,,,,,,74,26,,,100,0,100,0,100,0,100,0,,,,,50,50,100,0,100,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100,43734718336,100,1184967236,100,2031558382,,,,,,,,,,
+2025-07-01,2340E87B92B5,CT250MX500SSD1,250059350016,0,sac0,000,1028,14,,False,100,0,,,,,,,100,0,,,,,100,7720,,,,,100,6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100,0,100,0,84,215,100,0,,,,,,,,,,,0,50,,,,,100,0,100,0,100,0,,,,,,,,,,,,,65,35,,,100,0,100,0,100,0,100,0,,,,,84,16,100,0,100,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100,15130350600,100,179290322,100,472357936,,,,,,,,,,
+
+--- Top drive models (column 3) ---
+ 200514 TOSHIBA MG08ACA16TA
+ 191422 WDC WUH722222ALE6L4
+ 187270 TOSHIBA MG07ACA14TA
+ 169544 ST16000NM001G
+ 131889 WDC WUH721816ALE6L4
+  94357 ST12000NM0008
+  72008 TOSHIBA MG10ACA20TE
+  66738 ST8000NM0055
+  66705 HGST HUH721212ALE604
+  66195 ST12000NM001G
+
+--- Failure count (column 5) ---
+/home/adrianjae_prado/q3_sample/2025-07-01.csv:85290
+/home/adrianjae_prado/q3_sample/2025-07-02.csv:85175
+/home/adrianjae_prado/q3_sample/2025-07-03.csv:85227
+/home/adrianjae_prado/q3_sample/2025-07-04.csv:85948
+/home/adrianjae_prado/q3_sample/2025-07-05.csv:85701
+
+--- Average capacity_bytes (column 4) ---
+1.51166e+13
+
+--- Sample Findings — Q3 2025 (5 days: July 1-5) ---
+
+Even a small 5-day slice of Q3 2025 (~605 MB, 1,611,612 rows across 5 files) gave us a useful first look at the dataset before committing to the full 3-quarter run.
+
+Size and scale: Each daily file averages ~322,000 rows, meaning our full 3-quarter dataset (274 files) should land well past the 50-million-row requirement once we run the same commands at scale.
+
+Drive models: The most common drives in this sample were enterprise-grade hard disks -- Toshiba MG08ACA16TA (200,514 rows), WDC WUH722222ALE6L4 (191,422 rows), and Toshiba MG07ACA14TA (187,270 rows) -- consistent with what we'd expect from a commercial data center fleet.
+
+Average capacity: ~1.51 x 10^13 bytes (about 13.75 TB) per drive on average, reflecting a mix of large-capacity enterprise drives.
+
+Failure rate -- a methodology correction: Our first attempt at counting failures used grep -c ',1,' on column 5, which returned 85,000+ "failures" per file -- an implausible ~26% daily failure rate. We traced this to grep matching the pattern ,1, anywhere in the row, not just in the failure column; since each row has ~180 SMART metric columns, many of them coincidentally contain a 1 value, producing massive false positives.
+
+We corrected this using awk -F',' 'NR>1 && $5==1' to check the failure flag at its exact column position. This gave a corrected count of 59 failures across all 1.6 million rows -- a ~0.0037% daily failure rate, which aligns far more closely with real-world drive failure rates reported by Backblaze (typically 1-2% annualized).
+
+This was a useful early catch: it highlights why awk's column-aware filtering is more reliable than grep's pattern matching for structured CSV data with many columns, and it's a check we'll apply consistently once we scale profiling to the full dataset.
+
+--- Failure count (column 5, corrected with awk) ---
+59
