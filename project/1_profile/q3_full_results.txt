@@ -1,0 +1,26 @@
+=== Q3 2025 Full Profiling Results ===
+
+--- Total row count ---
+29844543
+
+--- Top 10 drive models (combined across all batches) ---
+3686376 TOSHIBA MG08ACA16TA
+3555491 WDC WUH722222ALE6L4
+3440051 TOSHIBA MG07ACA14TA
+3125133 ST16000NM001G 
+2425374 WDC WUH721816ALE6L4
+1728706 ST12000NM0008 
+1416127 TOSHIBA MG10ACA20TE
+1227006 HGST HUH721212ALE604
+1224440 ST8000NM0055 
+1219082 ST12000NM001G 
+
+--- Total failure count ---
+1254
+
+--- Weighted average capacity_bytes ---
+1.5164e+13
+
+Note: computed across all 92 days of Q3 2025 (5 batches of ~18-20 files each,
+downloaded, profiled, and deleted per batch to stay within Cloud Shell's disk limit).
+Consistent with the 5-day sample: ~324K rows/day, ~0.004% daily failure rate.
