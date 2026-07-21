@@ -23,4 +23,4 @@
 
 Note: computed across all 92 days of Q3 2025 (5 batches of ~18-20 files each,
 downloaded, profiled, and deleted per batch to stay within Cloud Shell's disk limit).
-Consistent with the 5-day sample: ~324K rows/day, ~0.004% daily failure rate.
+Consistent with the 5-day sample: ~324K rows/day, ~0.0042% daily failure rate.
