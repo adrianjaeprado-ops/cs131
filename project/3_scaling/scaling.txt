@@ -1,0 +1,16 @@
+=== Phase 3 — PySpark Scaling Experiment ===
+Job: failure_analysis.py — failure rate, avg power-on-hours, avg capacity by drive model
+Input: gs://adrianjaeprado-cs131-backblaze/data_Q*/*.csv (all 3 quarters, ~91M rows, 274 files)
+Cluster config: e2-standard-2 master + workers, Dataproc image 2.1-debian11, region us-central1
+
+Results:
+1 worker:  895.81s (~14m 56s) — single-node cluster
+2 workers: 374.36s (~6m 14s)
+4 workers: 231.76s (~3m 52s)
+
+Commands used:
+gcloud dataproc clusters create cluster-Nworker --region=us-central1 --num-workers=N --worker-machine-type=e2-standard-2 --master-machine-type=e2-standard-2 --image-version=2.1-debian11
+gcloud dataproc jobs submit pyspark gs://adrianjaeprado-cs131-backblaze/scripts/failure_analysis.py --cluster=cluster-Nworker --region=us-central1
+gcloud dataproc clusters delete cluster-Nworker --region=us-central1
+
+Observations: Runtime dropped consistently as workers increased: 1→2 workers gave a 2.4x speedup, while 2→4 workers gave a smaller 1.6x speedup, showing diminishing returns as parallel overhead (task scheduling, shuffling data between nodes) starts to eat into the gains from added compute. Going from a single-node cluster (which has to run master and worker roles on the same machine) to a true multi-node cluster accounts for some of the outsized 1→2 jump.
