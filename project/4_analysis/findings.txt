@@ -1,0 +1,40 @@
+=== Phase 4 - Findings ===
+
+Data source: gs://adrianjaeprado-cs131-backblaze/output/failure_rate_by_model
+(output of failure_analysis.py, run on Dataproc)
+
+We limited our comparison to drive models with at least 100,000 drive-days,
+since models with only a handful of observations could show a misleadingly
+high or low failure rate just from one or two incidents. Once we did that,
+WDC WUH722222ALE6L4 came out on top as the most reliable drive in our fleet,
+failing only 0.0010% of the time across 11.5 million drive-days. That's
+notable because it's also the model that became the most common drive in
+our dataset by Q1 2026, so a low failure rate paired with heavy deployment
+is a good sign. TOSHIBA MG08ACA16TEY sat at the opposite end, with a 0.0217%
+failure rate, more than 20 times higher than WDC's despite having a similar
+number of drive-days to compare against.
+
+We were also curious whether a drive's age had much to do with how often it
+failed, so we looked at each model's failure rate next to its average
+power-on-hours (SMART 9), which tells us how long a drive has actually been
+running rather than how old it is by calendar date. There was a
+relationship, but it wasn't especially strong, landing around a correlation
+of 0.393. A few of the drives with the highest average running hours, like
+HGST HMS5C4040BLE640 at over 76,000 hours, still had low failure rates,
+while some drives with far less runtime failed more often. That tells us
+manufacturer and model design probably matter just as much as, if not more
+than, how long a drive has been in use.
+
+Takeaway: reliability seems to come down to a mix of factors, including
+manufacturer, model generation, and usage, rather than age by itself.
+
+Methodology: Analysis limited to drive models with 100,000+ drive-days to
+avoid single-failure outliers skewing the ranking. 33 of 80 total models met
+this threshold, representing the vast majority of total drive-days in the
+dataset.
+
+Limitations: Power-on-hours is a proxy for usage, not true drive age; future
+work could incorporate specific SMART error counters (5, 187, 197, 198)
+alongside age for a fuller failure model.
+
+Visuals: reliability_bar_chart.png, age_vs_failure_scatter.png (in this folder)
