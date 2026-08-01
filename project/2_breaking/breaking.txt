@@ -19,3 +19,16 @@ File size on disk: 483.2 MB
 Result: pandas.read_csv() successfully loaded the file, but took 67.06 seconds and consumed 9,601.41 MB (about 9.6 GB) of memory once loaded, roughly 20 times the file's size on disk.
 
 This demonstrates the core problem with tools like pandas that load everything into memory, even when they do not outright crash: pandas expands each row into Python objects with significant overhead per cell, so memory usage grows far faster than file size. If we apply this same ratio to our full 3 quarter dataset (about 33.5 GB on disk across Q3 2025, Q4 2025, and Q1 2026), pandas would likely need somewhere in the range of 600 to 700 GB of RAM to load the entire dataset at once, which is far beyond what a normal laptop or even most single machines can provide. This is the direct motivation for using PySpark, which processes data across multiple machines rather than loading everything into memory on one machine at once.
+
+=== Same Aggregation, Two Ways ===
+
+Back in Phase 1, we calculated average capacity_bytes by hand using awk on a
+5-day sample from Q3 2025 and got about 13.8 TB. In Phase 3, we ended up
+computing that same average again, this time as part of the PySpark job,
+but across the full 91 million rows spanning all three quarters instead of
+just a small sample. Both approaches are doing the same basic math (summing
+up the values and dividing by the count), just at very different scales, and
+the results lined up the way we'd expect. It was a good sanity check that
+the command-line version and the distributed version agree with each other,
+even though one runs in seconds on a laptop and the other needs a Dataproc
+cluster to handle the full dataset.
