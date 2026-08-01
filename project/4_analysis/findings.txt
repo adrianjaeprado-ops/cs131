@@ -6,13 +6,17 @@ Data source: gs://adrianjaeprado-cs131-backblaze/output/failure_rate_by_model
 We limited our comparison to drive models with at least 100,000 drive-days,
 since models with only a handful of observations could show a misleadingly
 high or low failure rate just from one or two incidents. Once we did that,
-WDC WUH722222ALE6L4 came out on top as the most reliable drive in our fleet,
-failing only 0.0010% of the time across 11.5 million drive-days. That's
-notable because it's also the model that became the most common drive in
-our dataset by Q1 2026, so a low failure rate paired with heavy deployment
-is a good sign. TOSHIBA MG08ACA16TEY sat at the opposite end, with a 0.0217%
-failure rate, more than 20 times higher than WDC's despite having a similar
-number of drive-days to compare against.
+WDC WUH722222ALE6L4 stood out as the strongest performer among heavily
+deployed models, with a 0.0010% failure rate across 11.5 million drive-days.
+A few lower-volume models in our filtered set recorded zero failures during
+this window, but with far less data behind them, so we don't read that as
+proof they're inherently more reliable than WDC, just that no failures
+happened to show up yet. WDC being the most common drive by Q1 2026 makes
+this result even more reassuring, since a low failure rate paired with that
+much real-world use is a stronger signal than a low rate on a drive that
+barely got deployed. TOSHIBA MG08ACA16TEY sat at the opposite end, with a
+0.0217% failure rate, more than 20 times higher than WDC's, even though
+both models had enough drive-days to be included in our comparison.
 
 We were also curious whether a drive's age had much to do with how often it
 failed, so we looked at each model's failure rate next to its average
@@ -21,12 +25,13 @@ running rather than how old it is by calendar date. There was a
 relationship, but it wasn't especially strong, landing around a correlation
 of 0.393. A few of the drives with the highest average running hours, like
 HGST HMS5C4040BLE640 at over 76,000 hours, still had low failure rates,
-while some drives with far less runtime failed more often. That tells us
-manufacturer and model design probably matter just as much as, if not more
-than, how long a drive has been in use.
+while some drives with far less runtime failed more often. So it looks like
+manufacturer and model design play a real role here too, not just how many
+hours a drive has logged.
 
-Takeaway: reliability seems to come down to a mix of factors, including
-manufacturer, model generation, and usage, rather than age by itself.
+Basically, no single factor tells the whole story. Manufacturer, model
+generation, and how much a drive gets used all seem to matter for
+reliability, and age by itself doesn't explain much on its own.
 
 Methodology: Analysis limited to drive models with 100,000+ drive-days to
 avoid single-failure outliers skewing the ranking. 33 of 80 total models met
